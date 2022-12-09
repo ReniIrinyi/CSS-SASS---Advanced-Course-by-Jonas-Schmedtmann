@@ -1,0 +1,131 @@
+.hotel-view {
+  flex: 1;
+  background-color: #fff;
+}
+.gallery {
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    display: block;
+  }
+}
+
+.overview {
+  display: flex;
+  border-bottom: 1px solid var(--color-grey-light--2);
+
+  align-items: center;
+
+  &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $sb-small) {
+      font-size: 1.8rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    margin-right: auto;
+  }
+
+  &__icon-star,
+  &__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary);
+  }
+
+  &__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon-location {
+    margin-right: 0.5rem;
+  }
+
+  &__rating {
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: #fff;
+    align-self: stretch;
+    padding: 0 2.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (max-width: $sb-small) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__rating-average {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: -0.1rem;
+
+    @media only screen and (max-width: $sb-small) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__rating-count {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: $sb-small) {
+      font-size: 0.6rem;
+    }
+  }
+}
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  font-size: 2rem;
+  padding: 2px;
+  display: inline-block;
+  background-color: transparent;
+  transition: all 0.2s;
+
+  & span {
+    margin-left: 3px;
+    transition: margin-left 0.2s;
+  }
+  &:hover {
+    color: var(--color-grey-dark--2);
+    animation: pulsate 1s infinite;
+    background-color: transparent;
+
+    span {
+      margin-left: 7px;
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+}
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}

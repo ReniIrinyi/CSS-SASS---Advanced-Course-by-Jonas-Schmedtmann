@@ -1,0 +1,41 @@
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* box-sizing isnt inherit automatically, wir müssen on each element inherit schreiben */
+  box-sizing: inherit;
+}
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+/* general converting px to rem/em => set font-size to 10px!! 10 px=1rem (general 16px=1rem)  => ez viszont
+nem jó mert akkor az user nem tudja magának beállitani a font-size-ot! ezért
+jobb ha %-ban adjuk meg. => 10/16 => 62.5*/
+html {
+  font-size: 62.5%; //1rem==10px
+
+  @include respond(tab-land) {
+    //width <1200?
+    font-size: 56%; //1rem==9px => 9/16
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(phone) {
+    font-size: 30%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}

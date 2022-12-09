@@ -1,0 +1,49 @@
+@import "./colors";
+@import "./queries";
+
+.sidebar {
+  background-color: $color-primary;
+  grid-column: sidebar-start/sidebar-end;
+  grid-row: 1/-1;
+  display: flex;
+  justify-content: center;
+
+  @include respond(tab-land) {
+    grid-row: 1 / span 11;
+  }
+
+  // @include respond(phonexs) {
+  //   grid-row: 1 / -2;
+  // }
+}
+
+.nav-btn {
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+  height: 2px;
+  width: 4.5rem;
+  margin-top: 4rem;
+
+  @include respond(tab-land) {
+    width: 3rem;
+  }
+
+  &::before,
+  &::after {
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    content: "";
+    display: block;
+    @include respond(tab-land) {
+      width: 3rem;
+    }
+  }
+  &::before {
+    transform: translateY(-1.5rem);
+  }
+  &::after {
+    transform: translateY(1.3rem);
+  }
+}

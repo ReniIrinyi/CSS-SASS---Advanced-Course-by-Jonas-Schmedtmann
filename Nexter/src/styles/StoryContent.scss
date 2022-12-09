@@ -1,0 +1,26 @@
+@import "./colors";
+@import "./queries";
+
+.storyContent {
+  background-color: $color-grey-light-1;
+  grid-column: col-start 5 / full-end;
+
+  @include respond(tab-land) {
+    grid-column: 2/12;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 6rem 12rem;
+  align-items: flex-start;
+
+  @include respond(tab-land) {
+    padding: 5rem 8rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+}

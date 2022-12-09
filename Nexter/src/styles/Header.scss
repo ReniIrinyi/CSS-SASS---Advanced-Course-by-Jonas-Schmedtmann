@@ -1,0 +1,130 @@
+@import "./colors";
+@import "./queries";
+
+.header {
+  background-color: rgba($color-secondary, 0.9);
+  grid-column: full-start/col-end 6;
+
+  overflow: hidden;
+  display: grid;
+  grid-row-gap: 1.5rem;
+  grid-template-columns: min-content;
+  grid-template-rows: 1fr min-content 6rem 1fr min-content min-content;
+
+  @include respond(tab-land) {
+    grid-template-columns: min-content;
+  }
+  @include respond(phone) {
+    grid-column: full-start / full-end;
+  }
+
+  &__btn {
+    margin-top: 2.5rem;
+    margin-left: 5rem;
+    grid-column: 1/2;
+    grid-row: 4/5;
+    align-self: start;
+    justify-self: start;
+    z-index: 2;
+  }
+
+  &__main {
+    grid-column: 1/5;
+    grid-row: 1/5;
+    object-fit: fill;
+    width: 120%;
+    height: 150%;
+    display: block;
+    z-index: -1;
+
+    @include respond(tab-land) {
+      width: 110%;
+      width: 130%;
+    }
+    @include respond(tab-port) {
+      width: 100%;
+      width: 100%;
+    }
+  }
+
+  &__logo {
+    margin-top: 5rem;
+    height: 3rem;
+    grid-column: 1/5;
+    grid-row: 1/2;
+    z-index: 2;
+    justify-self: center;
+  }
+
+  &__heading {
+    &-sm {
+      margin-left: 5rem;
+      grid-column: 1/5;
+      grid-row: 2/3;
+    }
+
+    &-lg {
+      margin-left: 5rem;
+      grid-column: 1/5;
+      grid-row: 3/4;
+    }
+  }
+
+  &__seenon {
+    color: rgba(255, 255, 255, 0.662);
+    grid-column: 1/5;
+    z-index: 4;
+    margin-right: 5rem;
+    margin-left: 5rem;
+
+    &-text {
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      grid-column: 2/3;
+      grid-column-gap: 1.5rem;
+      align-items: center;
+      z-index: 4;
+      justify-self: center;
+      font-size: 1.6rem;
+      color: $color-grey-light-2;
+
+      &::before,
+      &::after {
+        content: "";
+        height: 1px;
+        display: block;
+        background-color: currentColor;
+      }
+    }
+  }
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10rem;
+    justify-self: center;
+    grid-row: 6/7;
+    grid-column: 1/5;
+    z-index: 4;
+    margin-bottom: 10rem;
+
+    @include respond(tab-port) {
+      column-gap: 1rem;
+      margin-bottom: 6rem;
+    }
+    @include respond(phone) {
+      column-gap: 0.1rem;
+      margin-bottom: 5rem;
+    }
+
+    img {
+      filter: brightness(70%);
+      height: 2rem;
+      @include respond(tab-land) {
+        height: 1.5rem;
+      }
+      @include respond(phonexs) {
+        height: 1rem;
+      }
+    }
+  }
+}

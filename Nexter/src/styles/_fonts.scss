@@ -1,0 +1,25 @@
+// FONT VARIABLES
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i");
+
+$font-primary: "Nunito";
+$font-display: "Josefin Sans";
+
+//FONT SIZES
+$default-fontSize: 1.6rem;
+
+//line-heights
+$default-lineHeight: 1.6;
+
+//MARGINS
+.mb-sm {
+  margin-bottom: 2rem;
+}
+.mb-md {
+  margin-bottom: 3rem;
+}
+.mb-lg {
+  margin-bottom: 4rem;
+}
+.mb-hg {
+  margin-bottom: 8rem;
+}

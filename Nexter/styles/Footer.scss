@@ -1,0 +1,70 @@
+@import "./colors";
+@import "./fonts";
+@import "./queries";
+
+.footer {
+  background-color: $color-secondary;
+  grid-column: full-start/full-end;
+  color: #fff;
+}
+.nav {
+  list-style: none;
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  @include respond(tab-land) {
+    padding: 2rem 1rem 1rem;
+    grid-gap: 1rem;
+  }
+
+  padding: 5rem 2rem 3rem;
+  grid-gap: 2rem;
+  align-items: center;
+
+  &__link:link,
+  &__link:visited {
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-family: $font-display;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1.5rem;
+    display: block;
+  }
+
+  &__copy {
+    padding: 0 0 5rem;
+    text-align: center;
+
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+
+    &--text {
+      color: rgba(255, 255, 255, 0.698);
+      text-decoration: none;
+      font-family: $font-display;
+      font-size: 1.3rem;
+
+      @include respond(phonexs) {
+        font-size: 1rem;
+      }
+
+      & a:visited,
+      & a:link {
+        color: rgba(255, 255, 255, 0.869);
+        text-decoration: none;
+        font-family: $font-display;
+        text-align: center;
+        padding: 0 1rem 0 1rem;
+        transition: all 0.2s;
+      }
+
+      & a:hover,
+      & a:active {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+.btn {
+  &--animated {
+    animation: moveInBottom 1s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+  &, //ez azt jelenti hogy nem csak a alinkre lesz mostmár érvényes hanem a button elementre is!! 
+  &:link,
+  &:visited {
+    display: inline-block;
+    /* középre akarjuk: a btn olyan mintha text lenne, mert link ezért a text-boxban kell középre igazitani a text-align-al!  */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+
+    //change for button-element
+    border: none;
+    cursor: pointer;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    /* 1. x 2. y 3.blur 4.color*/
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translate(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s;
+  }
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+}
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $font-size-medium;
+    display: inline-block;
+    text-decoration: none;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    background-color: $color-white;
+    color: $color-grey-dark;
+    border-radius: 10rem;
+    text-transform: uppercase;
+  }
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: traslateY(-2px);
+  }
+}

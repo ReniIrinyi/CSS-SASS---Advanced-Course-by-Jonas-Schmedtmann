@@ -1,0 +1,138 @@
+.header {
+  font-size: $font-size-medium;
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: $line;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media only screen and (max-width: $sb-smallest) {
+    flex-wrap: wrap;
+    height: 10rem;
+    align-content: space-around;
+  }
+}
+
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem;
+}
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: $sb-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light--2);
+  }
+
+  &__input {
+    font-size: inherit;
+    font-family: inherit; //mert nem örökli automatikusan az input element a globalt
+    background-color: var(--color-grey-light--2);
+    border: none;
+    color: inherit;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all 0.2s;
+    margin-right: -3.5rem;
+
+    &:focus {
+      width: 100%;
+      outline: none;
+      background-color: var(--color-grey-light--3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light--4);
+    }
+  }
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light--3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--color-grey-light--2);
+
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark--1);
+  }
+}
+
+.user-nav {
+  display: flex;
+  align-items: center;
+  flex: 0 0 15%;
+  justify-content: space-between;
+  align-self: stretch;
+  margin-right: 2rem;
+
+  & > * {
+    //user nav and all the direct children
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light--2);
+  }
+
+  &__icon-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-grey-dark--2);
+  }
+
+  &__notification {
+    font-size: 0.8rem;
+    background-color: var(--color-primary-light);
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    padding: 0.8rem;
+    color: #fff;
+    position: absolute;
+    top: 1.8rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}

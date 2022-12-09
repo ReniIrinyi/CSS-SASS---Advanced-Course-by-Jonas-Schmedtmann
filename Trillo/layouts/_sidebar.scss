@@ -1,0 +1,121 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-grey-dark--1);
+  flex: 0 0 20%;
+  justify-content: space-between;
+}
+.side-nav {
+  font-size: 1.4rem;
+  margin-top: 3.5rem;
+  list-style: none;
+  @media only screen and (max-width: $sb-medium) {
+    display: flex;
+    margin: 0;
+  }
+
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+      @media only screen and (max-width: $sb-medium) {
+        margin-bottom: 0;
+      }
+    }
+    @media only screen and (max-width: $sb-medium) {
+      flex: 1;
+    }
+  }
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transform-origin: left;
+    transition: transform 0.01s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.1s,
+      background-color 0.1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light--2);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    z-index: 100; //z-index only works if we have a spec. position!
+    position: relative;
+
+    @media only screen and (max-width: $sb-medium) {
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    @media only screen and (max-width: $sb-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
+  }
+
+  &__icon {
+    margin-right: 3rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: currentColor; //from the parent element
+
+    @media only screen and (max-width: $sb-small) {
+      margin-right: 0;
+      margin-bottom: 0;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+}
+
+.legal {
+  font-size: $font-size-medium;
+  line-height: 2rem;
+  text-align: center;
+  padding: 2.5rem;
+  color: var(--color-grey-light--4);
+  @media only screen and (max-width: $sb-medium) {
+    display: none;
+  }
+
+  &__copyright {
+    margin-top: 1.5rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: var(--color-grey-light--4);
+      display: inline-block;
+      text-transform: uppercase;
+      transition: all 2s;
+    }
+    &:hover,
+    &:active {
+      color: var(--color-primary);
+      transform: scale(1.2);
+    }
+  }
+}
